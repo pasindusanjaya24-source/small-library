@@ -1,11 +1,14 @@
 #include<iostream>
 #include<string>
 using namespace std;
+char select; 
 void create_page();
 void books_catatgary();
 void choosen(int option);
+void array(string location);
 int main(){
-int option;    
+int option;
+ string location;  
 string email,password;
 cout<<"enter your email:";
 cin>>email;
@@ -18,10 +21,12 @@ if (email=="amal@gmail.com"){
    }
    else{
     cout<<"your password is incorrect";
+	return 0;
    }
 }
 else{
     cout<<"\nyour email addrsess is incorrect";
+	return 0;
 }
 int choise;
 cout<<"enter your choise from above list : ";
@@ -45,10 +50,17 @@ cin>>choise;
        break;
       case 3:
       cout<<"\t================ PHYSICAL BOOKS ================="<<endl;
-       
+        books_catatgary();
+		cout<<"enter your book catagory: ";
+          cin>>option;
+       choosen(option);
        break;
       case 4:
-       cout<<"hey! you can search,what do you want library";
+	  cout<<"\t================ SEARCH LIBARY ================="<<endl;
+      cout<<"hey! you can search,what do you want library"<<endl;
+	  cout<<"enter your location: ";
+	  cin>>location;
+      array(location); 
        break;
       case 5:
        cout<<"setting";
@@ -90,6 +102,34 @@ void choosen(int option){
 	 			cout<<"b).lord of the ring\n";
 	 			cout<<"c).sherlock \n";
 	 			cout<<"d).robin hood\n";
+				cout<<"enter a number of book name :";
+				cin>>select;
+                  switch(select){
+					case 'a':
+					 cout<<"Harry Potter 1 : online view :download \n";
+					 cout<<"Harry Potter 2 : online view :download \n";
+					 cout<<"Harry Potter 3 : online view :download \n";
+					 cout<<"Harry Potter 4 : online view :download \n";
+					 cout<<"Harry Potter 5 : online view :download \n";
+					 cout<<"Harry Potter 6 : online view :download \n";  
+					 cout<<"Harry Potter 7 part 1 : online view :download\n ";  
+					 cout<<"Harry Potter 7 part 2 : online view :download\n ";  
+					 break;
+                    case 'b':
+					 cout<<"lord of the ring 1 : online view :download \n ";
+					 cout<<"lord of the ring 2 : online view :download \n ";
+					 cout<<"lord of the ring 3 : online view :download \n ";
+					 break;
+					case 'c':
+					 cout<<"sherlock homes  : online view :download\n";
+					 break;
+					case 'd':
+					 cout<<"robind hood \n";
+					 break;
+					default:
+					 cout<<"invaild input";
+
+				  }
 
 	 			break;
 	 		case 2:
@@ -116,4 +156,17 @@ void choosen(int option){
 			default:
 			 cout<<"invaild input"; 
 		 }
+}
+void array(string location){
+	string array[3][3]={ {"trincomalee","pinsara libray","opened today"},
+                        {"embilipitiya","mahajana libraray","opened today"},
+						{"nuwara","old library","closed today"}  };
+
+for(int i=0;i<3;i++){
+	if(location==array[i][0]){
+		for(int j=1;j<3;j++){
+            cout<<array[i][j]<<" : ";
+		}
+	}
+}
 }
