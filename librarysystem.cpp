@@ -1,15 +1,19 @@
 #include<iostream>
 #include<string>
 using namespace std;
+int setting_option;
+string email,emailnew1,newemail;
+
 char select; 
 void create_page();
 void books_catatgary();
 void choosen(int option);
 void array(string location);
+void setting(int setting_option);
 int main(){
 int option;
  string location;  
-string email,password;
+string password;
 cout<<"enter your email:";
 cin>>email;
 
@@ -28,6 +32,7 @@ else{
     cout<<"\nyour email addrsess is incorrect";
 	return 0;
 }
+
 int choise;
 cout<<"enter your choise from above list : ";
 cin>>choise;
@@ -63,7 +68,15 @@ cin>>choise;
       array(location); 
        break;
       case 5:
-       cout<<"setting";
+      cout<<"\t================ SETTING ================="<<endl;
+      cout<<"\t1.add another account";
+	  cout<<"\n\t2.change my email address";
+	  cout<<"\n\t3.change my password";
+	  cout<<"\n\t4.select theme"<<endl;
+	  cout<<"enter your choise number : ";
+	  cin>>setting_option;
+	 setting(setting_option);
+
        break;
       case 6:
        cout<< "you can rate for our app!" ;
@@ -158,15 +171,63 @@ void choosen(int option){
 		 }
 }
 void array(string location){
-	string array[3][3]={ {"trincomalee","pinsara libray","opened today"},
+	string array[8][3]={ {"trincomalee","pinsara libray","opened today"},
                         {"embilipitiya","mahajana libraray","opened today"},
-						{"nuwara","old library","closed today"}  };
+						{"nuwara","old library","closed today"},
+						{"sevanagala","nanasala library","opned today"},
+						{"horana","new sarasawi library","closed today"},
+						{"monaragala","senura library","opend today"},
+						{"anuradhapura","samagi library","closed today"},
+						{"polonnaruwa","parakrama library","opend today"}
+					};
 
-for(int i=0;i<3;i++){
+for(int i=0;i<8;i++){
 	if(location==array[i][0]){
 		for(int j=1;j<3;j++){
             cout<<array[i][j]<<" : ";
-		}
+		}cout<<endl;
 	}
+	
 }
+
+}
+void setting(int setting_option){
+	switch(setting_option){
+		case 1:
+		 cout<<"enter your email address for new account :";
+		 cin>>emailnew1;
+		 if(emailnew1==email){
+			cout<<"already, you have a account from that email";
+		 }
+		 else{
+			cout<<"\t========== SUCCECES =========";
+			cout<<"\naccount added! you can swith another account.";
+
+		 }break;
+
+	    case 2:
+          cout<<"enter your new email: ";
+		  cin>>newemail;
+		  if(newemail==email){
+			cout<<"already, you have a account from that email";
+		 }
+		 else{
+			cout<<"\t========== SUCCECES =========";
+			cout<<"\naccount added! you can swith another account.";
+		 }
+		  break;
+		case 3:
+		 cout<<"change your password: ";
+		 
+		 break;
+		case 4:
+		 cout<<"what do you want dark theme or light theme :";
+		 break;
+		defalut:
+		 cout<<"invaild input";
+
+}
+
+
+	
 }
