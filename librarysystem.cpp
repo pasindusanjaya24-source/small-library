@@ -2,7 +2,7 @@
 #include<string>
 using namespace std;
 int setting_option;
-string email,emailnew1,newemail;
+
 
 char select; 
 void create_page();
@@ -10,10 +10,12 @@ void books_catatgary();
 void choosen(int option);
 void array(string location);
 void setting(int setting_option);
+void rateapp(int rate);
+
 int main(){
-int option;
+int option,rate;
  string location;  
-string password;
+string email,password;
 cout<<"enter your email:";
 cin>>email;
 
@@ -79,7 +81,9 @@ cin>>choise;
 
        break;
       case 6:
-       cout<< "you can rate for our app!" ;
+       cout<< "enter your rate for our app: " ;
+	   cin>>rate;
+	   rateapp(rate);
        break;  
       case 7:
        cout<<"thank you for use our platform." ;
@@ -89,22 +93,24 @@ cin>>choise;
  }
     return 0;
 }
+
 void create_page(){
-    cout<<"\t=============================================\t"<<endl;
+    cout<<"\t================================================\t"<<endl;
 	cout<<"\t====== WELCOME TO ONLINE LIBRARY PLATFORM ======\t"<<endl;
-	cout<<"\t=============================================\t"<<endl;
-	cout<<"hey! amal lets start your jounery;"<<endl;
+	cout<<"\t================================================\t"<<endl;
+	cout<<"\they! amal lets start your jounery;"<<endl;
     cout<<"\t1.My Status \n\t2.online Books\n\t3.physical book\n\t4.search library\n\t5.Setting\n\t6.Rate This App\n\t7.Exist\n";
 
 }
+
 void books_catatgary(){
     cout<<"BOOKS CATAGORIES :"<<endl;
 	 	cout<<"1.story\n";
 	 	cout<<"2.ict\n";
 	 	cout<<"3.sports\n";
 	 	cout<<"4.science\n";
-	 	cout<<"5.arts\n";
-	 	
+	 	cout<<"5.arts\n";	
+		cout<<"6.politicals\n";
     }
 
 void choosen(int option){	 	
@@ -134,10 +140,12 @@ void choosen(int option){
 					 cout<<"lord of the ring 3 : online view :download \n ";
 					 break;
 					case 'c':
-					 cout<<"sherlock homes  : online view :download\n";
+					 cout<<"sherlock homes 1 : online view :download\n";
+					 cout<<"sherlock homes 2 : online view :download\n";
 					 break;
 					case 'd':
-					 cout<<"robind hood \n";
+					 cout<<"robind hood old : online view :download\n";
+					 cout<<"robind hood new : online view :download\n";
 					 break;
 					default:
 					 cout<<"invaild input";
@@ -166,37 +174,45 @@ void choosen(int option){
 			case 5:
 			 cout<<"how to gitar";
 			 break;
+			case 6:
+			 cout<<"political history";
+			 break; 
 			default:
 			 cout<<"invaild input"; 
 		 }
 }
+
 void array(string location){
-	string array[8][3]={ {"trincomalee","pinsara libray","opened today"},
+	string array[10][3]={ {"trincomalee","pinsara libray","opened today"},
                         {"embilipitiya","mahajana libraray","opened today"},
 						{"nuwara","old library","closed today"},
 						{"sevanagala","nanasala library","opned today"},
 						{"horana","new sarasawi library","closed today"},
 						{"monaragala","senura library","opend today"},
 						{"anuradhapura","samagi library","closed today"},
-						{"polonnaruwa","parakrama library","opend today"}
+						{"polonnaruwa","parakrama library","opend today"},
+						{"gampaha","star library","closed today"},
+						{"nawalapitiya","nimantha library","opend today"},
 					};
 
-for(int i=0;i<8;i++){
+for(int i=0;i<10;i++){
 	if(location==array[i][0]){
 		for(int j=1;j<3;j++){
+			location[i] = tolower(location[i]);
             cout<<array[i][j]<<" : ";
 		}cout<<endl;
 	}
 	
 }
-
 }
+
 void setting(int setting_option){
+string emailnew1,newemail,newpassword;
 	switch(setting_option){
 		case 1:
 		 cout<<"enter your email address for new account :";
 		 cin>>emailnew1;
-		 if(emailnew1==email){
+		 if(emailnew1=="amal@gmail.com"){
 			cout<<"already, you have a account from that email";
 		 }
 		 else{
@@ -208,7 +224,7 @@ void setting(int setting_option){
 	    case 2:
           cout<<"enter your new email: ";
 		  cin>>newemail;
-		  if(newemail==email){
+		  if(newemail=="amal@gmail.com"){
 			cout<<"already, you have a account from that email";
 		 }
 		 else{
@@ -217,7 +233,15 @@ void setting(int setting_option){
 		 }
 		  break;
 		case 3:
-		 cout<<"change your password: ";
+		 cout<<"enter your current password: ";
+         cout<<"your new password : ";
+		 cin>>newpassword;
+		 if(newpassword=="amal123"){
+			cout<<"your password is already use,try again with new password";
+		 }
+		 else{
+			cout<<"your password is updated!";
+		 }
 		 
 		 break;
 		case 4:
@@ -225,9 +249,32 @@ void setting(int setting_option){
 		 break;
 		defalut:
 		 cout<<"invaild input";
-
+             
+}
 }
 
+void rateapp(int rate){
+	switch(rate){
+		case 1:
+		 cout<<"thank for your rating in *";
+		 break;
+		case 2:
+		 cout<<"thank for your rating in **";
+		 break;
+	    case 3:
+		 cout<<"thank for your rating in ***" ;
+		 break;
+		case 4:
+		 cout<<"thank for your rating in ****";
+		 break; 
+		case 5:
+		 cout<<"thank for your rating in *****";
+		 break;
+		default:
+		 cout<<"invaild rating value!";
+
+	}
+}
+               
 
 	
-}
