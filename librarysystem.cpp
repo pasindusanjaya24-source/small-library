@@ -13,9 +13,9 @@ void setting(int setting_option);
 void rateapp(int rate);
 
 int main(){
-int option,rate;
+int option,rate,ch,choise;
  string location;  
-string email,password;
+string email,password,bpassword;
 cout<<"enter your email:";
 cin>>email;
 
@@ -29,17 +29,11 @@ if (email=="amal@gmail.com"){
     cout<<"your password is incorrect";
 	return 0;
    }
-}
-else{
-    cout<<"\nyour email addrsess is incorrect";
-	return 0;
-}
 
-int choise;
-cout<<"enter your choise from above list : ";
-cin>>choise;
+  cout<<"enter your choise from above list : ";
+  cin>>choise;
 
- switch(choise){
+    switch(choise){
       case 1:
        cout<<"\t================ MY STATUS ================="<<endl;
      	cout<<"NAME  BOOKS CATAGORY  BOOKS NAME       START DATE    END OF DATE"<<endl;
@@ -88,17 +82,85 @@ cin>>choise;
       case 7:
        cout<<"thank you for use our platform." ;
        break;
-      defalut:
+      default:
        cout<<"invaild input.try again!";
- }
-    return 0;
+    }
 }
+else if(email=="bimal456@gmail.com"){
+	cout<<"enter your password: ";
+	cin>>bpassword;
+	if(bpassword=="bimal456"){
+  create_page();
+   }
+   else{
+    cout<<"your password is incorrect";
+	return 0;
+   }
+   cout<<"enter your choise from above list : ";
+  cin>>ch;
+
+    switch(ch){
+      case 1:
+       cout<<"\t================ MY STATUS ================="<<endl;
+     	cout<<"NAME  BOOKS CATAGORY  BOOKS NAME       START DATE    END OF DATE"<<endl;
+     	cout<<"bimal  ict             learn c++        2025/06/07    2025/07/02"<<endl;
+    	cout<<"bimal  ict             python intro     2025/07/07    2025/07/25"<<endl;
+      	cout<<"bimal  story           harry potter 2   2025/09/07    2025/10/02"<<endl;
+     	cout<<"bimal  story           harry potter 3   2025/10/07    not yet\n"<<endl;
+       break;
+      case 2:
+      cout<<"\t================ ONLINE BOOKS ================="<<endl;
+       books_catatgary();
+        cout<<"enter your book catagory: ";
+          cin>>option;
+       choosen(option);
+       break;
+      case 3:
+      cout<<"\t================ PHYSICAL BOOKS ================="<<endl;
+        books_catatgary();
+		cout<<"enter your book catagory: ";
+          cin>>option;
+       choosen(option);
+       break;
+      case 4:
+	  cout<<"\t================ SEARCH LIBARY ================="<<endl;
+      cout<<"hey! you can search,what do you want library"<<endl;
+	  cout<<"enter your location: ";
+	  cin>>location;
+      array(location); 
+       break;
+      case 5:
+      cout<<"\t================ SETTING ================="<<endl;
+      cout<<"\t1.add another account";
+	  cout<<"\n\t2.change my email address";
+	  cout<<"\n\t3.change my password";
+	  cout<<"\n\t4.select theme"<<endl;
+	  cout<<"enter your choise number : ";
+	  
+       break;
+      case 6:
+       cout<< "enter your rate for our app: " ;
+	   cin>>rate;
+	   rateapp(rate);
+       break;  
+      case 7:
+       cout<<"thank you for use our platform." ;
+       break;
+      default:
+       cout<<"invaild input.try again!";
+    }
+	}
+else {
+	cout<<"your email is incorrect";
+}
+    return 0;
+    }
 
 void create_page(){
     cout<<"\t================================================\t"<<endl;
 	cout<<"\t====== WELCOME TO ONLINE LIBRARY PLATFORM ======\t"<<endl;
 	cout<<"\t================================================\t"<<endl;
-	cout<<"\they! amal lets start your jounery;"<<endl;
+	cout<<"\they! lets start your jounery;"<<endl;
     cout<<"\t1.My Status \n\t2.online Books\n\t3.physical book\n\t4.search library\n\t5.Setting\n\t6.Rate This App\n\t7.Exist\n";
 
 }
@@ -183,7 +245,7 @@ void choosen(int option){
 }
 
 void array(string location){
-	string array[10][3]={ {"trincomalee","pinsara libray","opened today"},
+	string arrays[10][3]={ {"trincomalee","pinsara libray","opened today"},
                         {"embilipitiya","mahajana libraray","opened today"},
 						{"nuwara","old library","closed today"},
 						{"sevanagala","nanasala library","opned today"},
@@ -196,10 +258,9 @@ void array(string location){
 					};
 
 for(int i=0;i<10;i++){
-	if(location==array[i][0]){
+	if(location==arrays[i][0]){
 		for(int j=1;j<3;j++){
-			location[i] = tolower(location[i]);
-            cout<<array[i][j]<<" : ";
+            cout<<arrays[i][j]<<" : ";
 		}cout<<endl;
 	}
 	
@@ -233,21 +294,12 @@ string emailnew1,newemail,newpassword;
 		 }
 		  break;
 		case 3:
-		 cout<<"enter your current password: ";
-         cout<<"your new password : ";
-		 cin>>newpassword;
-		 if(newpassword=="amal123"){
-			cout<<"your password is already use,try again with new password";
-		 }
-		 else{
-			cout<<"your password is updated!";
-		 }
-		 
-		 break;
+		cout<<"you can change your password\n";
+		break;
 		case 4:
 		 cout<<"what do you want dark theme or light theme :";
 		 break;
-		defalut:
+		default:
 		 cout<<"invaild input";
              
 }
